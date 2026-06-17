@@ -14,13 +14,14 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",              // ← Replace
-  authDomain:        "YOUR_PROJECT.firebaseapp.com",
-  databaseURL:       "https://YOUR_PROJECT-default-rtdb.firebaseio.com",  // ← Must match Python script
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID",
+  apiKey: "AIzaSyCc4It2ymwT3vs5GRU8_9D-cE8R27gLBec",
+  authDomain: "battery-health-b20fb.firebaseapp.com",
+  databaseURL: "https://battery-health-b20fb-default-rtdb.firebaseio.com",
+  projectId: "battery-health-b20fb",
+  storageBucket: "battery-health-b20fb.firebasestorage.app",
+  messagingSenderId: "614002307675",
+  appId: "1:614002307675:web:de1d999ef48e993834857e",
+  measurementId: "G-2V8K3QV53B"
 };
 
 // Initialize Firebase

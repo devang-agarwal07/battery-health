@@ -30,7 +30,7 @@ from firebase_admin import credentials, db
 # ═══════════════════════════════════════════════════════════
 SERIAL_PORT = "COM3"          # Change to your Arduino's COM port
 BAUD_RATE = 9600              # Must match Arduino's Serial.begin()
-FIREBASE_DB_URL = "https://YOUR-PROJECT-ID-default-rtdb.firebaseio.com/"  # ← REPLACE THIS
+FIREBASE_DB_URL = "https://battery-health-b20fb-default-rtdb.firebaseio.com"  # ← REPLACE THIS
 SERVICE_ACCOUNT_KEY = os.path.join(os.path.dirname(__file__), "serviceAccountKey.json")
 
 # SoH Calculation Constants (mirrors the dashboard algorithm)
