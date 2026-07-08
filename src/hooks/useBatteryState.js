@@ -69,7 +69,8 @@ export function useBatteryState() {
   const tier = getSoHTier(finalSoH);
 
   const isThermalWarning = temperature > 45;
-  const voltageStatus = voltage >= 3.0 && voltage <= 4.2 ? 'Stable' : voltage < 3.0 ? 'Low' : 'High';
+  const isDisconnected = voltage < 0.5 && !isSystemOff;
+  const voltageStatus = isDisconnected ? 'Disconnected' : voltage >= 3.0 && voltage <= 4.2 ? 'Stable' : voltage < 3.0 ? 'Low' : 'High';
 
   // Simulate live telemetry updates every second (only if not connected to hardware)
   useEffect(() => {
@@ -150,6 +151,9 @@ export function useBatteryState() {
                 if (!isSystemOff) setTestDuration(prev => prev + 1);
               } else if (cleanLine.includes('SYSTEM OFF')) {
                 setIsSystemOff(true);
+                setVoltage(0);
+                setCurrent(0);
+                setTemperature(0);
               } 
               // Fallback to original comma separated format just in case
               else if (cleanLine.includes(',')) {
@@ -197,6 +201,8 @@ export function useBatteryState() {
 
   // Record history for charts
   useEffect(() => {
+    if (!isLogging) return;
+    
     setHistory(prev => {
       const now = new Date();
       const timeLabel = now.toLocaleTimeString('en-US', {
