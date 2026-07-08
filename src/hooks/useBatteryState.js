@@ -54,7 +54,7 @@ export function useBatteryState() {
   const [temperature, setTemperature] = useState(32.8);
   const [history, setHistory] = useState([]);
   const [testDuration, setTestDuration] = useState(0);
-  const [isLogging, setIsLogging] = useState(false);
+  const [isLogging, setIsLogging] = useState(true);
   const [isConnected, setIsConnected] = useState(false);
   const [isSystemOff, setIsSystemOff] = useState(false);
   const tickRef = useRef(0);

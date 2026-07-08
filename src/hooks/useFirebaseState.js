@@ -47,7 +47,7 @@ export function useFirebaseState() {
   const [temperature, setTemperature] = useState(0);
   const [history, setHistory] = useState([]);
   const [testDuration, setTestDuration] = useState(0);
-  const [isLogging, setIsLogging] = useState(false);
+  const [isLogging, setIsLogging] = useState(true);
   const [isConnected, setIsConnected] = useState(false);
   const [isSystemOff, setIsSystemOff] = useState(false);
   const [isFirebaseConnected, setIsFirebaseConnected] = useState(false);
