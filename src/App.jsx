@@ -106,11 +106,6 @@ export default function App() {
                 <p className="text-lg font-bold text-amber-500">SYSTEM OFF - Press switch to start test</p>
               </div>
             )}
-            {!isSystemOff && voltage < 0.5 && (
-              <div className="rounded-xl border border-red-500/50 bg-red-500/10 p-4 text-center animate-pulse">
-                <p className="text-lg font-bold text-red-500">BATTERY DISCONNECTED - Please check connections</p>
-              </div>
-            )}
             <DischargeChart data={history} />
             <TemperatureChart data={history} />
           </div>

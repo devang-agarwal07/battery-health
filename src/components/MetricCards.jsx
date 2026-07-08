@@ -24,8 +24,8 @@ export function VoltageCard({ voltage, status }) {
       </div>
 
       <div className="flex items-center gap-1.5">
-        <span className={`h-1.5 w-1.5 rounded-full ${status === 'Stable' ? 'bg-emerald' : status === 'Disconnected' || status === 'Low' ? 'bg-danger' : 'bg-amber'} ${status === 'Disconnected' ? 'animate-pulse' : ''}`} />
-        <span className={`text-xs font-medium ${status === 'Stable' ? 'text-emerald/80' : status === 'Disconnected' || status === 'Low' ? 'text-danger/80' : 'text-amber/80'}`}>
+        <span className={`h-1.5 w-1.5 rounded-full ${status === 'Stable' ? 'bg-emerald' : status === 'Low' ? 'bg-danger' : 'bg-amber'}`} />
+        <span className={`text-xs font-medium ${status === 'Stable' ? 'text-emerald/80' : status === 'Low' ? 'text-danger/80' : 'text-amber/80'}`}>
           STATUS: {status}
         </span>
       </div>

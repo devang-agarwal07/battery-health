@@ -59,8 +59,7 @@ export function useFirebaseState() {
   const tier = getSoHTier(finalSoH);
 
   const isThermalWarning = temperature > 45;
-  const isDisconnected = voltage < 0.5 && !isSystemOff;
-  const voltageStatus = isDisconnected ? 'Disconnected' : voltage >= 3.0 && voltage <= 4.2 ? 'Stable' : voltage < 3.0 ? 'Low' : 'High';
+  const voltageStatus = voltage >= 3.0 && voltage <= 4.2 ? 'Stable' : voltage < 3.0 ? 'Low' : 'High';
 
   // Listen to Firebase Realtime Database
   useEffect(() => {
@@ -74,9 +73,6 @@ export function useFirebaseState() {
 
       if (data.systemOff) {
         setIsSystemOff(true);
-        setVoltage(0);
-        setCurrent(0);
-        setTemperature(0);
         return;
       }
 
@@ -98,7 +94,6 @@ export function useFirebaseState() {
 
   // Record history for charts whenever values change
   useEffect(() => {
-    if (!isLogging) return;
     if (voltage === 0 && current === 0) return; // Skip initial zeros
 
     setHistory(prev => {
